@@ -1,1 +1,30 @@
-<h2>Licenses#index</h2>
+<% html_title t(:label_license_plural) %>
+
+<div class="contextual">
+  <% if User.current.allowed_to?(:add_license, nil, :global => true) %>
+    <%= link_to t(:label_license_new), new_license_path, :class => 'icon icon-add' %>
+  <% end %>
+</div>
+
+<h2><%= t(:label_license_plural) %></h2>
+
+
+<div class="autoscroll">
+  <table class="list">
+    <thead><th><%= License.human_attribute_name(:name) %></th>
+    <% if User.current.allowed_to?(:add_license, nil, :global => true) %>
+      <th></th>
+    <% end %>
+    </thead>
+    <% @licenses.each do |license| %>
+      <tr><td><%= link_to license.name, license %></td>
+        <% if User.current.allowed_to?(:edit_license, nil, :global => true) %>
+          <td class="buttons">
+            <%= link_to l(:button_edit), edit_license_path(license), :class => 'icon icon-edit' %> | 
+            <%= link_to l(:button_delete), license, :method => :delete, :class => 'icon icon-del', :confirm => 'Are you sure?' %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

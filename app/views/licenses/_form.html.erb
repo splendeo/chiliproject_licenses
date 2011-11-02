@@ -1,0 +1,14 @@
+<%= error_messages_for 'license' %>
+
+<% form_for @license, :builder => TabularFormBuilder, :html => {:multipart => true} do |f| %>
+
+  <div class="box tabular ">
+    <p><%= f.text_field :name, :required => true %></p>
+    <p><%= f.text_field :identifier, :required => true %></p>
+    <p><%= f.text_field :url %></p>
+  </div>
+
+  <%= submit_tag l(@license.new_record? ? :button_create : :button_save) %>
+
+<% end %>
+

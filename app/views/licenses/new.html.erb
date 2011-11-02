@@ -1,1 +1,5 @@
-<h2>Licenses#new</h2>
+<h2><%= link_to t(:label_license_plural), companies_path %> &#187; <%= t(:label_license_new) %></h2>
+
+<%= render :partial => 'form' %>
+
+<% html_title t(:label_license_new) %>

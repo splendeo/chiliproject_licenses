@@ -41,7 +41,7 @@ class LicensesController < ApplicationController
 
   def destroy
     @license.destroy
-    flash[:notice] = t(:notice_successful_create)
+    flash[:notice] = t(:notice_successful_delete)
     redirect_to licenses_url
   end
 

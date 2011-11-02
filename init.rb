@@ -21,7 +21,7 @@ Redmine::Plugin.register :chiliproject_licenses do
               'bottom_text' => ''
             }
 
-  menu :top_menu, :licenses, { :controller => 'licenses', :action => 'index' }, :caption => I18n.t('licenses'), :after => :projects
+  menu :top_menu, :licenses, { :controller => 'licenses', :action => 'index' }, :caption => I18n.t(:label_license_plural, :default => "Licenses"), :after => :projects
 
   permission :view_licenses, :licenses => [:show, :index]
 end
