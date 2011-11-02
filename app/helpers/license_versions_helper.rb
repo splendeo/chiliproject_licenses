@@ -1,0 +1,2 @@
+module LicenseVersionsHelper
+end

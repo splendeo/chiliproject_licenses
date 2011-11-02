@@ -1,6 +1,8 @@
 class License < ActiveRecord::Base
   unloadable
 
+  has_many :versions, :class_name => 'LicenseVersion', :dependent => :destroy
+
   validates_presence_of :name, :identifier
   validates_uniqueness_of :identifier
   validates_format_of :identifier, :with => /^(?!\d+$)[a-z0-9\-_]*$/
