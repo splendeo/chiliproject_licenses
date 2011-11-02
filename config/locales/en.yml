@@ -1,0 +1,26 @@
+# English strings go here for Rails i18n
+en:
+  field_short_description: "Short description"
+  field_logo: "Logo"
+  field_url: "Website url"
+
+  field_top_text: "Top Text"
+  field_bottom_text: "Bottom Text"
+
+  label_company: "Company"
+  label_company_plural: "Companies"
+  label_company_new: "New company"
+  label_additional_data: "Additional Data"
+
+  label_member_filter: "Filter members by name"
+  label_project_filter: "Filter projects by name"
+
+  label_companies_settings_intro: "You may specify two texts that will be shown on the companies index page, on of them over the companies table and the other below it."
+
+  notice_save_before_clicking: "(Save before clicking on this link)"
+
+  activerecord:
+    models:
+      company:
+        one: "Company"
+        other: "Companies"
