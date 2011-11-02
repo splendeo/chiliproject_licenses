@@ -4,6 +4,7 @@ class CreateLicenseVersions < ActiveRecord::Migration
       t.column :identifier, :string
       t.column :authors, :string
       t.column :text, :text
+      t.column :url, :string
       t.column :license_id, :integer
     end
   end

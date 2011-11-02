@@ -1,8 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resources :licenses do |license|
-
-    license.resources :versions, :except => [:index, :show]
+    license.resources :license_versions, :except => [:index, :show]
   end
 
   map.license_version(

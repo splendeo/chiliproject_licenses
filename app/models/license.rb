@@ -1,7 +1,7 @@
 class License < ActiveRecord::Base
   unloadable
 
-  has_many :versions, :class_name => 'LicenseVersion', :dependent => :destroy
+  has_many :license_versions, :dependent => :destroy
 
   validates_presence_of :name, :identifier
   validates_uniqueness_of :identifier

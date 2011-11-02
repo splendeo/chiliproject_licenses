@@ -1,12 +1,22 @@
 # English strings go here for Rails i18n
 en:
+
   label_license: "License"
   label_license_plural: "Licenses"
   label_license_new: "New license"
-  label_additional_data: "Additional Data"
+
+  label_license_version: "Version"
+  label_license_version_plural: "Versions"
+  label_license_version_new: "New Version"
+
+  field_url: "URL"
+  field_authors: "Authors"
 
   activerecord:
     models:
       license:
         one: "License"
         other: "Licenses"
+      license_version:
+        one: "Version"
+        other: "Versions"
