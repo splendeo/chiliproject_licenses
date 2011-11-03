@@ -2,8 +2,8 @@ class LicenseVersionsController < ApplicationController
   unloadable
 
   before_filter :require_admin, :except => :show
-  before_filter :get_version_by_identifier, :except => [:new, :create]
   before_filter :get_license_by_identifier
+  before_filter :get_version_by_identifier, :except => [:new, :create]
 
   def show
   end
@@ -19,7 +19,7 @@ class LicenseVersionsController < ApplicationController
     @license_version = @license.license_versions.new(params[:license_version])
     if @license_version.save
       flash[:notice] = t(:notice_successful_create)
-      redirect_to license_license_version_path(@license, @license_version)
+      redirect_to license_version_path(:license_id => @license, :id => @license_version)
     else
       render :action => :new
     end
@@ -28,7 +28,7 @@ class LicenseVersionsController < ApplicationController
   def update
     if @license_version.update_attributes(params[:license_version])
       flash[:notice] = t(:notice_successful_update)
-      redirect_to license_license_version_path(@license, @license_version)
+      redirect_to license_version_path(:license_id => @license, :id => @license_version)
     else
       render :action => :edit
     end

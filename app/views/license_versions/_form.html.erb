@@ -1,6 +1,6 @@
-<%= error_messages_for 'license' %>
+<%= error_messages_for 'license_version' %>
 
-<% form_for @license_version, :builder => TabularFormBuilder, :html => {:multipart => true}, :url => license_license_versions_path(@license_version) do |f| %>
+<% form_for [@license, @license_version], :builder => TabularFormBuilder, :html => {:multipart => true} do |f| %>
 
   <div class="box tabular ">
     <p><%= f.text_field :identifier, :required => true %></p>
