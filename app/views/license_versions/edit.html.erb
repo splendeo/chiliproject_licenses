@@ -1,1 +1,5 @@
-<h2>LicenseVersions#edit</h2>
+<h2><%= link_to t(:label_license_plural), licenses_path %> &#187; <%= link_to @license.name, @license %> &#187; <%= @license_version.identifier %></h2>
+
+<%= render :partial => 'form' %>
+
+<% html_title @license_version.title %>

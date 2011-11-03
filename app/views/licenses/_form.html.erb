@@ -8,6 +8,13 @@
     <p><%= f.text_field :url %></p>
   </div>
 
+  <% if @license.new_record? %>
+    <h3><%= t :label_initial_version %>:</h3>
+    <% f.fields_for :versions do |vf| %>
+      <%= render :partial => 'license_versions/fields', :locals => {:f => vf, :license => @license } %>
+    <% end %>
+  <% end %>
+
   <%= submit_tag l(@license.new_record? ? :button_create : :button_save) %>
 
 <% end %>

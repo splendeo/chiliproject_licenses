@@ -2,12 +2,14 @@
 	<% if User.current.allowed_to?(:edit_license, nil, :global => true) %>
 	  <%= link_to "Edit #{@license.name}", edit_license_path(@license), :class => 'icon icon-edit' %> |
 	<% end %>
-	<% if User.current.allowed_to?(:add_license, nil, :global => true) %>
-		<%= link_to "New license", new_license_path, :class => 'icon icon-add' %>
+	<% if User.current.allowed_to?(:edit_license, nil, :global => true) %>
+		<%= link_to "New version", new_license_license_version_path(@license), :class => 'icon icon-add' %>
 	<% end %>
 </div>
 
 <h2><%= link_to t(:label_license_plural), licenses_path %> &#187; <%= @license.name %></h2>
 
-<p><h3><%= @license.url %></h3></p>
+<h3><%= @license.url %></h3>
+
+<%= render :partial => 'license_versions/show', :locals => {:version => @latest_version} %>
 

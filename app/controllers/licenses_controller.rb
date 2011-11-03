@@ -10,6 +10,7 @@ class LicensesController < ApplicationController
   end
 
   def show
+    @latest_version = @license.latest_version
   end
 
   def edit
@@ -17,6 +18,7 @@ class LicensesController < ApplicationController
 
   def new
     @license = License.new
+    @license.versions.build
   end
 
   def create

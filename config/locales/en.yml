@@ -9,8 +9,16 @@ en:
   label_license_version_plural: "Versions"
   label_license_version_new: "New Version"
 
+  label_version_edit: "Edit version"
+  label_version_new: "New version"
+
+  label_other_versions: "Other versions"
+  label_initial_version: "Initial version"
+
   field_url: "URL"
   field_authors: "Authors"
+  field_date: "Date"
+  field_latest_version: "Latest version"
 
   activerecord:
     models:

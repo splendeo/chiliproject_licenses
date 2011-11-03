@@ -1,0 +1,28 @@
+
+<h1><%= version.license.name %> - <%= link_to version.identifier, license_version_path(version.license, version) %> <small>(<%= format_date(version.date) %>)</small></h1>
+
+<% if version.authors.present? %><h3 id="authors"><%= version.authors %></h3><% end %>
+
+<% if version.url.present? %><h3><%= link_to version.url %></h3><% end %>
+
+<div class="wiki">
+  <%= textilizable version, :text %>
+</div>
+
+
+<% if version.license.versions.size > 1 %>
+  <hr />
+  <h3><%= t :label_other_versions %></h3>
+
+  <ul>
+    <% version.license.versions.each do |v| %>
+      <li>
+        <% if v == version %>
+          <%= v.identifier %>
+        <% else %>
+          <%= link_to v.identifier, license_version_path(@license, v) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

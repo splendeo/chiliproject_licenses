@@ -12,11 +12,11 @@ class LicenseVersionsController < ApplicationController
   end
 
   def new
-    @license_version = @license.license_versions.new
+    @license_version = @license.versions.new
   end
 
   def create
-    @license_version = @license.license_versions.new(params[:license_version])
+    @license_version = @license.versions.new(params[:license_version])
     if @license_version.save
       flash[:notice] = t(:notice_successful_create)
       redirect_to license_version_path(:license_id => @license, :id => @license_version)
@@ -50,7 +50,7 @@ class LicenseVersionsController < ApplicationController
 
   def get_version_by_identifier
     if @license
-      @license_version = @license.license_versions.find_by_identifier(params[:id])
+      @license_version = @license.versions.find_by_identifier(params[:id])
     else
       render_404
     end
