@@ -2,6 +2,7 @@ class LicenseVersion < ActiveRecord::Base
   unloadable
 
   belongs_to :license
+  has_many :projects
 
   validates_presence_of :date, :identifier
   validates_uniqueness_of :identifier, :scope => :license_id
