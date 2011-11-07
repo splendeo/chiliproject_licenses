@@ -24,5 +24,4 @@ class License < ActiveRecord::Base
     versions.build(params)
   end
 
-
 end

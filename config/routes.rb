@@ -1,7 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resources :licenses do |license|
-    license.resources :license_versions, :except => [:index, :show], :as => 'version'
+    license.resources :license_versions,
+                      :except => [:index, :show],
+                      :as => 'version',
+                      :requirements => {:id => License::LICENSE_REGEX }
   end
 
   map.license_version(

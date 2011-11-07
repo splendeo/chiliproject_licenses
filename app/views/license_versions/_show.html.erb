@@ -1,4 +1,3 @@
-
 <h1><%= version.license.name %> - <%= link_to version.identifier, license_version_path(version.license, version) %> <small>(<%= format_date(version.date) %>)</small></h1>
 
 <% if version.authors.present? %><h3 id="authors"><%= version.authors %></h3><% end %>
