@@ -13,7 +13,7 @@ class LicenseVersion < ActiveRecord::Base
   end
 
   def title
-    "#{license.name} - #{identifier}"
+    "#{license.name} #{identifier}"
   end
 
 end

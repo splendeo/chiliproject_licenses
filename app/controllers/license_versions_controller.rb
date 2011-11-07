@@ -2,8 +2,11 @@ class LicenseVersionsController < ApplicationController
   unloadable
 
   before_filter :require_admin, :except => :show
-  before_filter :get_license_by_identifier
-  before_filter :get_version_by_identifier, :except => [:new, :create]
+  before_filter :get_license_by_identifier, :only => :show
+  before_filter :get_version_by_identifier, :only => :show
+
+  before_filter :get_license, :only => [:edit, :create]
+  before_filter :get_license_version, :only => :edit
 
   def show
   end
@@ -41,6 +44,22 @@ class LicenseVersionsController < ApplicationController
   end
 
   private
+
+  def get_license
+    @license = License.find(params[:license_id])
+  rescue ActiveRecord::RecordNotFound
+    render_404
+  end
+
+  def get_license_version
+    if @license
+      @license_version = @license.versions.find_by_id(params[:id])
+    else
+      render_404
+    end
+  rescue ActiveRecord::RecordNotFound
+    render_404
+  end
 
   def get_license_by_identifier
     @license = License.find_by_identifier(params[:license_id])

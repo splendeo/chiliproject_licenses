@@ -10,21 +10,19 @@
 
 
 <div class="autoscroll">
-  <table class="list">
-    <thead><th><%= License.human_attribute_name(:name) %></th>
-    <% if User.current.allowed_to?(:add_license, nil, :global => true) %>
-      <th></th>
-    <% end %>
-    </thead>
-    <% @licenses.each do |license| %>
-      <tr><td><%= link_to license.name, license %></td>
-        <% if User.current.allowed_to?(:edit_license, nil, :global => true) %>
-          <td class="buttons">
-            <%= link_to l(:button_edit), edit_license_path(license), :class => 'icon icon-edit' %> | 
-            <%= link_to l(:button_delete), license, :method => :delete, :class => 'icon icon-del', :confirm => 'Are you sure?' %>
-          </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
+  <% @licenses.each do |license| %>
+    <h3><%= link_to license.name, license %>
+      <% if User.current.allowed_to?(:edit_license, nil, :global => true) %>
+        <small class="contextual">
+          <%= link_to l(:button_edit), edit_license_path(license), :class => 'icon icon-edit' %> |
+          <%= link_to l(:button_delete), license, :method => :delete, :class => 'icon icon-del', :confirm => 'Are you sure?' %>
+        </small>
+      <% end %>
+    </h3>
+    <ul>
+      <% license.versions.each do |version| %>
+        <li><%= link_to version.title, license_version_path(license, version) %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

@@ -20,6 +20,9 @@ en:
   field_date: "Date"
   field_latest_version: "Latest version"
 
+  field_versions:
+    date: "Date"
+
   activerecord:
     models:
       license:
