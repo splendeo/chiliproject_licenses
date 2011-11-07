@@ -8,4 +8,28 @@
 <% end %>
 <h2><%= link_to t(:label_license_plural), licenses_path %> &#187; <%= link_to @license_version.title, license_version_path(@license, @license_version) %></h2>
 
-<%= render :partial => 'show', :locals => {:version => @license_version} %>
+<h4><small><%= version.date %><% if version.authors.present? %> - <%= version.authors %><% end %><% if version.url.present? %> - <%= link_to version.url %><% end %>
+</small></h4>
+
+
+<div class="wiki">
+  <%= textilizable version, :text %>
+</div>
+
+
+<% if version.license.versions.size > 1 %>
+  <hr />
+  <h3><%= t :label_other_versions %></h3>
+
+  <ul>
+    <% version.license.versions.each do |v| %>
+      <li>
+        <% if v == version %>
+          <%= v.identifier %>
+        <% else %>
+          <%= link_to v.identifier, license_version_path(@license, v) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
