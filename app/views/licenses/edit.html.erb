@@ -2,4 +2,19 @@
 
 <%= render :partial => 'form' %>
 
+<div>
+  <% if User.current.allowed_to?(:edit_license, nil, :global => true) %>
+  <div class="contextual">
+    <%= link_to t(:label_version_new), new_license_license_version_path(@license), :class => 'icon icon-add' %>
+  </div>
+  <% end %>
+  <h3><%= LicenseVersion.human_name(:count => 2) %></h3>
+
+  <ul>
+    <% @license.versions.each do |version| %>
+      <li><%= link_to version.identifier, license_license_version_path(@license, version) %></li>
+    <% end %>
+  </ul>
+</div>
+
 <% html_title "#{t(:label_license_plural)} - #{@license.name}" %>

@@ -11,18 +11,20 @@
 
 <div class="autoscroll">
   <% @licenses.each do |license| %>
-    <h3><%= link_to license.name, license %>
+    <div class="license">
       <% if User.current.allowed_to?(:edit_license, nil, :global => true) %>
-        <small class="contextual">
-          <%= link_to l(:button_edit), edit_license_path(license), :class => 'icon icon-edit' %> |
+        <div class="contextual">
           <%= link_to l(:button_delete), license, :method => :delete, :class => 'icon icon-del', :confirm => 'Are you sure?' %>
-        </small>
+        </div>
       <% end %>
-    </h3>
-    <ul>
-      <% license.versions.each do |version| %>
-        <li><%= link_to version.title, license_version_path(license, version) %></li>
-      <% end %>
-    </ul>
+
+      <h3><%= link_to license.name, license %></h3>
+
+      <ul>
+        <% license.versions.each do |version| %>
+          <li><%= link_to version.title, license_version_path(license, version) %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 </div>

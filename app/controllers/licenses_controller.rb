@@ -11,6 +11,7 @@ class LicensesController < ApplicationController
 
   def show
     @latest_version = @license.latest_version
+    redirect_to license_version_path(@license, @latest_version)
   end
 
   def edit

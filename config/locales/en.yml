@@ -4,13 +4,15 @@ en:
   label_license: "License"
   label_license_plural: "Licenses"
   label_license_new: "New license"
+  label_license_edit: "Edit license"
 
   label_license_version: "Version"
   label_license_version_plural: "Versions"
-  label_license_version_new: "New Version"
+  label_license_version_new: "Add Version"
 
   label_version_edit: "Edit version"
   label_version_new: "New version"
+  label_version_delete: "Delete version"
 
   label_other_versions: "Other versions"
   label_initial_version: "Initial version"

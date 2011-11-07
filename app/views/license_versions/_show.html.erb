@@ -1,8 +1,6 @@
-<h1><%= version.license.name %> - <%= link_to version.identifier, license_version_path(version.license, version) %> <small>(<%= format_date(version.date) %>)</small></h1>
+<h4><small><%= version.date %><% if version.authors.present? %> - <%= version.authors %><% end %><% if version.url.present? %> - <%= link_to version.url %><% end %>
+</small></h4>
 
-<% if version.authors.present? %><h3 id="authors"><%= version.authors %></h3><% end %>
-
-<% if version.url.present? %><h3><%= link_to version.url %></h3><% end %>
 
 <div class="wiki">
   <%= textilizable version, :text %>
