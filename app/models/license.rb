@@ -1,6 +1,7 @@
 class License < ActiveRecord::Base
   unloadable
 
+
   LICENSE_REGEX = /[a-zA-Z0-9][\w\-\.]*/
 
   has_many :versions, :class_name => 'LicenseVersion', :dependent => :destroy, :order => 'license_versions.date DESC'
@@ -15,8 +16,9 @@ class License < ActiveRecord::Base
   accepts_nested_attributes_for :logos, :allow_destroy => false
 
   acts_as_attachable :view_permission => :view_licenses, :delete_permission => :edit_licenses
-  attr_writer :attachments
+
   after_save :add_logos
+  attr_accessor :logo_data
 
   def to_param
     @to_param ||= identifier.to_s
@@ -46,14 +48,14 @@ class License < ActiveRecord::Base
     logos
   end
 
+  def attachments=(args)
+    logo_data = args
+  end
+
   private
 
   def add_logos
-    counter = 1
-    @attachments.each do |attachment|
-      Attachment.attach_files(self, counter => {'file' => attachment.file, 'description' => attachment.description})
-      counter = counter + 1
-    end
+    Attachment.attach_files(self, logo_data)
   end
 
 end

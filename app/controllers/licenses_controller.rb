@@ -24,6 +24,7 @@ class LicensesController < ApplicationController
 
   def create
     @license = License.new(params[:license])
+    @license.logo_data = params[:attachments]
 
     if @license.save
       flash[:notice] = t(:notice_successful_create)
@@ -34,6 +35,7 @@ class LicensesController < ApplicationController
   end
 
   def update
+    @license.logo_data = params[:attachments]
     if @license.update_attributes(params[:license])
       flash[:notice] = t(:notice_successful_update)
       redirect_to @license

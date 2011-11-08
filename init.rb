@@ -3,6 +3,7 @@ require 'redmine'
 require 'dispatcher'
 
 Dispatcher.to_prepare :chiliproject_licenses do
+  require_dependency 'chiliproject_licenses/patches/attachments_helper_patch'
   require_dependency 'chiliproject_licenses/patches/project_patch'
   require_dependency 'chiliproject_licenses/patches/projects_controller_patch'
   require_dependency 'chiliproject_licenses/patches/projects_helper_patch'

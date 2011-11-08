@@ -1,5 +1,7 @@
+
 class LicenseVersionsController < ApplicationController
-  unloadable
+  helper :attachments
+  include AttachmentsHelper
 
   before_filter :require_admin, :except => :show
   before_filter :get_license_by_identifier

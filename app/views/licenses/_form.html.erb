@@ -15,9 +15,8 @@
     <% end %>
   <% end %>
 
-  <p><label><%=l(:label_logo_plural)%></label></br>
-    <%= render :partial => 'attachments/form' %>
-  </p>
+  <%= render :partial => 'logos' %>
+  <%= render :partial => 'attachments/form' %>
 
   <%= submit_tag l(@license.new_record? ? :button_create : :button_save) %>
 
