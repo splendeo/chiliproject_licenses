@@ -3,10 +3,15 @@ require 'redmine'
 require 'dispatcher'
 
 Dispatcher.to_prepare :chiliproject_licenses do
-  require_dependency 'chiliproject_licenses/patches/attachments_helper_patch'
   require_dependency 'chiliproject_licenses/patches/project_patch'
+  Project.send(:include, ChiliprojectLicenses::Patches::ProjectPatch)
+
   require_dependency 'chiliproject_licenses/patches/projects_controller_patch'
+  ProjectsController.send(:include, ChiliprojectLicenses::Patches::ProjectsControllerPatch)
+
   require_dependency 'chiliproject_licenses/patches/projects_helper_patch'
+  ProjectsHelper.send(:include, ChiliprojectLicenses::Patches::ProjectsHelperPatch)
+
   require_dependency 'chiliproject_licenses/hooks'
 end
 
