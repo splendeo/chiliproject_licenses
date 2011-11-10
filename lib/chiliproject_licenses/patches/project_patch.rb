@@ -1,4 +1,3 @@
-require_dependency 'project'
 
 # Patches Chiliproject's Projects dynamically.  Adds a relationship
 # Project +has_and_belongs_to_many+ to Licenses

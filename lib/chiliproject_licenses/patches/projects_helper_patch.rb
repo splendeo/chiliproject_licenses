@@ -1,5 +1,3 @@
-require_dependency 'projects_helper'
-
 module ChiliprojectLicenses
   module Patches
     module ProjectsHelperPatch
