@@ -1,6 +1,5 @@
 
 <% if @license.logos.size > 0 %>
-  <hr />
   <h3><%= t :label_logo_plural %></h3>
   <%= link_to_attachments @license, :author => false %>
 <% end %>
