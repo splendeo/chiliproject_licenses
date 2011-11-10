@@ -13,7 +13,7 @@ module ChiliprojectLicenses
 
           def license_url(license_version)
             return license.version.url if license_version.url.present?
-            license_version_path(license_version)
+            license_version_path(license_version.license, license_version)
           end
         end
       end
