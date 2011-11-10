@@ -1,5 +1,7 @@
 
 class LicenseVersionsController < ApplicationController
+  unloadable
+
   helper :attachments
   include AttachmentsHelper
 
