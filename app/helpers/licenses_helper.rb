@@ -6,7 +6,7 @@ module LicensesHelper
 
 private
 
-  def get_license_version_url(l)
+  def get_license_url(l)
     return l.url if l.url.present?
     license_path(l)
   end

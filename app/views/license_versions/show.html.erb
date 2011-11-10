@@ -17,21 +17,7 @@
 </div>
 
 
-<% if @license.versions.size > 1 %>
-  <hr />
-  <h3><%= t :label_other_versions %></h3>
-
-  <ul>
-    <% @license.versions.each do |v| %>
-      <li>
-        <% if v == @license_version %>
-          <%= v.identifier %>
-        <% else %>
-          <%= link_to v.identifier, license_version_path(@license, v) %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<h3><%= t :label_other_versions %></h3>
+<%= render :partial => 'licenses/versions', :locals => {:license => @license, :current_version => @license_version } %>
 
 <%= render :partial => 'licenses/logos' %>

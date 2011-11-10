@@ -4,6 +4,9 @@ class LicensesController < ApplicationController
   helper :attachments
   include AttachmentsHelper
 
+  helper :license_versions
+  include LicenseVersionsHelper
+
   before_filter :require_admin, :except => [:index, :show]
   before_filter :get_license_by_identifier, :except => [:index, :new, :create]
 

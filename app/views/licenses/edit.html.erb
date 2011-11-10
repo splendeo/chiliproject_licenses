@@ -10,11 +10,8 @@
   <% end %>
   <h3><%= LicenseVersion.human_name(:count => 2) %></h3>
 
-  <ul>
-    <% @license.versions.each do |version| %>
-      <li><%= link_to version.identifier, license_license_version_path(@license, version) %></li>
-    <% end %>
-  </ul>
+  <%= render :partial => 'versions', :locals => { :license => @license } %>
+
 </div>
 
 <% html_title "#{t(:label_license_plural)} - #{@license.name}" %>
