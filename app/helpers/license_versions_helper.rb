@@ -1,11 +1,15 @@
 module LicenseVersionsHelper
-  def link_to_attachments(container, options = {})
-    options.assert_valid_keys(:author)
-    
-    if container.attachments.any?
-      options = {:deletable => container.attachments_deletable?, :author => true}.merge(options)
-      render :partial => 'attachments/links', :locals => {:attachments => container.attachments, :options => options}
-    end
+
+  def link_to_license_version(lv)
+    link_to(lv.title, get_license_version_url(lv))
   end
+
+private
+
+  def get_license_version_url(lv)
+    return lv.url if lv.url.present?
+    license_version_path(lv.license, lv)
+  end
+
 end
 

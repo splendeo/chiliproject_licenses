@@ -4,6 +4,9 @@ module ChiliprojectLicenses
 
       def self.included(base) # :nodoc:
         base.class_eval do
+          helper :license_versions
+          include LicenseVersionsHelper
+
           before_filter :get_licenses, :only => [:new, :create, :edit, :update, :settings]
         end
       end
