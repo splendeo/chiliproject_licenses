@@ -12,7 +12,7 @@ module ChiliprojectLicenses
       end
 
       def get_licenses
-        @licenses = LicenseVersion.all(:include => :license, :order => 'licenses.name ASC, license_versions.date DESC')
+        @licenses = LicenseVersion.for_select
       end
 
     end

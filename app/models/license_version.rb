@@ -8,6 +8,8 @@ class LicenseVersion < ActiveRecord::Base
   validates_uniqueness_of :identifier, :scope => :license_id
   validates_format_of :identifier, :with => /^#{License::LICENSE_REGEX}$/
 
+  named_scope :for_select, { :include => :license, :order => 'licenses.name ASC, license_versions.date DESC' }
+
   def to_param
     @to_param ||= identifier.to_s
   end
