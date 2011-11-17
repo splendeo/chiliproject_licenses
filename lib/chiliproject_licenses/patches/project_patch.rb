@@ -11,6 +11,9 @@ module ChiliprojectLicenses
           belongs_to :license, :class_name => 'LicenseVersion'
 
           safe_attributes :license_id
+
+          named_scope :with_license_id, lambda { |license_id| { :conditions => {:license_id => license_id} } }
+
         end
       end
     end
