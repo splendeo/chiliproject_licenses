@@ -16,7 +16,14 @@
   <%= textilizable @license_version, :text %>
 </div>
 
+<% if @license.versions.count > 1 %>
 <h3><%= t :label_other_versions %></h3>
 <%= render :partial => 'licenses/versions', :locals => {:license => @license, :current_version => @license_version } %>
+<% end %>
+
+
+<% if @license.logos.count > 1 %>
+<h3><%= t :label_logo_plural %></h3>
 
 <%= render :partial => 'licenses/logos' %>
+<% end %>
