@@ -23,6 +23,7 @@ en:
   field_authors: "Authors"
   field_date: "Date"
   field_latest_version: "Latest version"
+  field_license: "License"
 
   field_versions:
     date: "Date"
