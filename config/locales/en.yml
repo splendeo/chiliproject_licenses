@@ -17,6 +17,9 @@ en:
   label_other_versions: "Other versions"
   label_initial_version: "Initial version"
 
+
+  label_licenses_settings_intro: "The following two pieces of text will appear at the top/bottom parts of the main Licenses page, respectively."
+
   label_logo_plural: "Logos"
 
   field_url: "URL"

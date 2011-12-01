@@ -13,6 +13,7 @@ class LicensesController < ApplicationController
 
   def index
     @licenses = License.all(:order => :name)
+    @settings = Setting.plugin_chiliproject_licenses
   end
 
   def show
