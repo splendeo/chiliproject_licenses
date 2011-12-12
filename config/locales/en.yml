@@ -27,6 +27,7 @@ en:
   field_date: "Date"
   field_latest_version: "Latest version"
   field_license: "License"
+  field_short_name: "Short name"
 
   field_versions:
     date: "Date"

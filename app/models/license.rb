@@ -52,6 +52,17 @@ class License < ActiveRecord::Base
     logo_data = args
   end
 
+  def safe_short_name
+    return short_name if short_name.present?
+    name
+  end
+
+  def link_text
+    result = name
+    result += " (#{short_name})" if short_name.present?
+    result
+  end
+
   private
 
   def add_logos
