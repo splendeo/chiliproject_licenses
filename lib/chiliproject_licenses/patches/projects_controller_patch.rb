@@ -7,7 +7,7 @@ module ChiliprojectLicenses
           helper :license_versions
           include LicenseVersionsHelper
 
-          before_filter :get_licenses, :only => [:new, :create, :edit, :update, :settings]
+          before_filter :get_licenses, :only => [:new, :create, :edit, :update, :settings, :copy]
         end
       end
 
